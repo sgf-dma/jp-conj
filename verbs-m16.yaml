@@ -1,0 +1,28 @@
+
+- name: "te"
+  files: &files
+    dest: "./vforms/m16"
+    number: 2
+  filter: &filter
+    till: 16
+  questions:
+    - front:
+        - line: &masuL
+          - vform: &masu
+              base: "masuBased"
+              new:  "ます"
+      back:
+        line: &teL
+        - vform: &te
+            base: "teBased"
+            new:  "て"
+
+- name: "te-rev"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *teL
+      back:
+        line: *masuL
+

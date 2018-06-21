@@ -1,0 +1,48 @@
+
+- name: "te"
+  files: &files
+    dest: "./vforms/m15"
+    number: 2
+  filter: &filter
+    till: 15
+  questions:
+    - front:
+        - line: &masuL
+          - vform: &masu
+              base: "masuBased"
+              new:  "ます"
+      back:
+        line: &teL
+        - vform: &te
+            base: "teBased"
+            new:  "て"
+
+- name: "te-rev"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *teL
+      back:
+        line: *masuL
+
+- name: "full-m15"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line:
+          - vform:
+              base: "teBased"
+              new:  "てもいいです"
+        - line:
+          - vform:
+              base: "teBased"
+              new:  "てはいけません"
+        - line:
+          - vform:
+              base: "teBased"
+              new:  "ています"
+      back:
+        line: *masuL
+

@@ -1,0 +1,48 @@
+
+- name: "nai"
+  files: &files
+    dest: "./vforms/m17"
+    number: 2
+  filter: &filter
+    till: 17
+  questions:
+    - front:
+        - line: &masuL
+          - vform: &masu
+              base: "masuBased"
+              new:  "ます"
+      back:
+        line: &naiL
+        - vform: &nai
+            base: "naiBased"
+            new:  "ない"
+
+- name: "nai-rev"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *naiL
+      back:
+        line: *masuL
+
+- name: "full-m17"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line:
+          - vform:
+              base: "naiBased"
+              new:  "ないでください"
+        - line:
+          - vform:
+              base: "naiBased"
+              new:  "なければなりません"
+        - line:
+          - vform:
+              base: "naiBased"
+              new:  "なくてもいいです"
+      back:
+        line: *masuL
+

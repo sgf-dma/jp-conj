@@ -1,0 +1,43 @@
+- name: "futsuu-rev"
+  files: &files
+    dest: "./vforms/m20"
+    number: 2
+  filter: &filter
+    till: 20
+  questions:
+    - front:
+        - line: &dictL
+          - vform: &dict
+              base: "dictBased"
+              new:  ""
+        - line: &naiL
+          - vform: &nai
+              base: "naiBased"
+              new:  "ない"
+        - line: &taL
+          - vform: &ta
+              base: "teBased"
+              new:  "た"
+        - line: &nakattaL
+          - vform: &nakatta
+              base: "naiBased"
+              new:  "なかった"
+      back:
+        line: &masuL
+        - vform: &masu
+            base: "masuBased"
+            new:  "ます"
+
+- name: "futsuu"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *masuL
+      back:
+        line: &futsuuL
+          - vform: *dict
+          - vform: *nai
+          - vform: *ta
+          - vform: *nakatta
+

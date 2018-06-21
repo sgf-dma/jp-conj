@@ -1,0 +1,44 @@
+
+- name: "dict"
+  files: &files
+    dest: "./vforms/m18"
+    number: 2
+  filter: &filter
+    till: 18
+  questions:
+    - front:
+        - line: &masuL
+          - vform: &masu
+              base: "masuBased"
+              new:  "ます"
+      back:
+        line: &dictL
+        - vform: &dict
+            base: "dictBased"
+            new:  ""
+
+- name: "dict-rev"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *dictL
+      back:
+        line: *masuL
+
+- name: "full-m18"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line:
+          - vform:
+              base: "dictBased"
+              new:  "ことができます"
+        - line:
+          - vform:
+              base: "dictBased"
+              new:  "前に"
+      back:
+        line: *masuL
+
