@@ -1,0 +1,44 @@
+
+- name: "ta"
+  files: &files
+    dest: "./vforms/m19"
+    number: 2
+  filter: &filter
+    till: 19
+  questions:
+    - front:
+        - line: &masuL
+          - vform: &masu
+              base: "masuBased"
+              new:  "ます"
+      back:
+        line: &taL
+        - vform: &ta
+            base: "teBased"
+            new:  "た"
+
+- name: "ta-rev"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *taL
+      back:
+        line: *masuL
+
+- name: "full-m19"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line:
+          - vform:
+              base: "teBased"
+              new:  "たことがあります"
+        - line:
+          - vform:
+              base: "teBased"
+              new:  "たり"
+      back:
+        line: *masuL
+

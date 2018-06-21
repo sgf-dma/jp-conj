@@ -1,0 +1,88 @@
+
+- name: "futsuu-rev"
+  files: &files
+    dest: "./vforms/m25"
+    number: 2
+  filter: &filter
+    till: 25
+  questions:
+    - front:
+        - line: &dictL
+          - vform: &dict
+              base: "dictBased"
+              new:  ""
+        - line: &naiL
+          - vform: &nai
+              base: "naiBased"
+              new:  "ない"
+        - line: &taL
+          - vform: &ta
+              base: "teBased"
+              new:  "た"
+        - line: &nakattaL
+          - vform: &nakatta
+              base: "naiBased"
+              new:  "なかった"
+      back:
+        line: &masuL
+        - vform: &masu
+            base: "masuBased"
+            new:  "ます"
+
+- name: "futsuu"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *masuL
+      back:
+        line: &futsuuL
+          - vform: *dict
+          - vform: *nai
+          - vform: *ta
+          - vform: *nakatta
+
+- name: "cross"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *naiL
+      back:
+        line: *taL
+    - front:
+        - line: *taL
+      back:
+        line: *nakattaL
+    - front:
+        - line: *nakattaL
+      back:
+        line: *dictL
+
+- name: "te"
+  files: &files
+    dest: "./vforms/m25"
+    number: 2
+  filter: &filter
+    till: 25
+  questions:
+    - front:
+        - line: &masuL
+          - vform: &masu
+              base: "masuBased"
+              new:  "ます"
+      back:
+        line: &teL
+        - vform: &te
+            base: "teBased"
+            new:  "て"
+
+- name: "te-rev"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *teL
+      back:
+        line: *masuL
+
