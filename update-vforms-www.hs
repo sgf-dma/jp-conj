@@ -38,6 +38,7 @@ main        = do
                      , "-s", "--template=default.html5"
                      , "-f", "markdown+grid_tables"
                      , "-o", "vforms/conjugations.html"
+                     , "conjugations.txt"
                      ]
       return ()
 
