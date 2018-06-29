@@ -1,0 +1,136 @@
+
+- name: "masu-futsuu"
+  files: &files
+    dest: "./vforms/m26"
+    number: 2
+  filter: &filter
+    till: 26
+  questions:
+    - front:
+        - line: &masuL
+          - vform: &masu
+              base: "masuBased"
+              new:  "ます"
+      back:
+        line: &dictL
+          - vform: &dict
+              base: "dictBased"
+              new:  ""
+
+    - front:
+        - line: &masuNegL
+          - vform: &masuNeg
+              base: "masuBased"
+              new:  "ません"
+      back:
+        line: &naiL
+          - vform: &nai
+              base: "naiBased"
+              new:  "ない"
+
+    - front:
+        - line: &masuPastL
+          - vform: &masuPast
+              base: "masuBased"
+              new:  "ました"
+      back:
+        line: &taL
+          - vform: &ta
+              base: "teBased"
+              new:  "た"
+
+    - front:
+        - line: &masuPastNegL
+          - vform: &masuPastNeg
+              base: "masuBased"
+              new:  "ませんでした"
+      back:
+        line: &nakattaL
+          - vform: &nakatta
+              base: "naiBased"
+              new:  "なかった"
+
+- name: "masu-futsuu-rev"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *dictL
+      back:
+        line: *masuL
+
+    - front:
+        - line: *naiL
+      back:
+        line: *masuNegL
+
+    - front:
+        - line: *taL
+      back:
+        line: *masuPastL
+
+    - front:
+        - line: *nakattaL
+      back:
+        line: *masuPastNegL
+
+- name: "full-m26"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *masuL
+      back:
+        line: &dictNL
+          - vform: &dictN
+              base: "dictBased"
+              new:  "んです"
+
+    - front:
+        - line: *masuNegL
+      back:
+        line: &naiNL
+          - vform: &naiN
+              base: "naiBased"
+              new:  "ないんです"
+
+    - front:
+        - line: *masuPastL
+      back:
+        line: &taNL
+          - vform: &taN
+              base: "teBased"
+              new:  "たんです"
+
+    - front:
+        - line: *masuPastNegL
+      back:
+        line: &nakattaNL
+          - vform: &nakattaN
+              base: "naiBased"
+              new:  "なかったんです"
+
+- name: "full-m26-rev"
+  files: *files
+  filter: *filter
+  questions:
+    - front:
+        - line: *dictNL
+      back:
+        line: *masuL
+
+    - front:
+        - line: *naiNL
+      back:
+        line: *masuNegL
+
+    - front:
+        - line: *taNL
+      back:
+        line: *masuPastL
+
+    - front:
+        - line: *nakattaNL
+      back:
+        line: *masuPastNegL
+
