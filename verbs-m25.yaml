@@ -60,11 +60,8 @@
         line: *dictL
 
 - name: "te"
-  files: &files
-    dest: "./vforms/m25"
-    number: 2
-  filter: &filter
-    till: 25
+  files: *files
+  filter: *filter
   questions:
     - front:
         - line: &masuL
