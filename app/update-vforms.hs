@@ -33,9 +33,9 @@ main        = do
       forM_ cfs $ \cf -> do
         ct <- S.toTextWarn cf
         S.run_ "verb-forms" ["--config", ct]
-      --  Update conjugations.html .
+      -- Update conjugations.html .
       S.run_ "stack" ["exec", "pandoc", "--"
-                     , "-s", "--template=default.html5"
+                     , "-s", "--template=default.html4"
                      , "-f", "markdown+grid_tables"
                      , "-o", "vforms/conjugations.html"
                      , "conjugations.txt"

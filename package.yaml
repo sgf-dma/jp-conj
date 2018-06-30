@@ -6,7 +6,7 @@ author:              "Author name here"
 maintainer:          "sgf.dma@gmail.com"
 
 extra-source-files:
-- ChangeLog.md
+- docs/README.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
