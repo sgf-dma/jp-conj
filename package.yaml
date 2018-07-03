@@ -22,6 +22,7 @@ dependencies:
 - system-filepath
 - text
 - shelly
+- pandoc
 
 executables:
   update-vforms:
